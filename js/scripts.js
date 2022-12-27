@@ -158,3 +158,23 @@ particlesJS("particles-js", {
     },
     "retina_detect": true
   });
+
+  $("#contactForm").on("submit", function(e) {
+    $("#submitButton").prop("disabled", true)
+    $("#submitButton").addClass("disabled")
+    Toastify({
+      text: "Your message have been submitted",
+      duration: 3000,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+      callback: function(e) {
+        $("#contactForm").trigger("reset")
+        $("#submitButton").prop("disabled", false)
+        $("#submitButton").removeClass("disabled")
+
+      }
+    }).showToast();
+  })
