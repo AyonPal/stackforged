@@ -105,6 +105,10 @@
           error: function (error) {
             console.error('Error sending email:', error);
             displayAlert('danger', 'An error occurred while sending the email.');
+            setTimeout(() => {
+              sessionStorage.removeItem('access_token');
+              window.location.href = 'login.html';
+            }, 5000)
           }
         });
       }
@@ -155,7 +159,8 @@
           },
           error: function (error) {
             console.error('Error:', error);
-            // Handle error response
+            sessionStorage.removeItem('access_token');
+            window.location.href = 'login.html';
           }
         });
       }
