@@ -206,7 +206,7 @@
           const emailButtons = document.querySelectorAll('.email-btn');
           emailButtons.forEach(function (button) {
             button.addEventListener('click', function () {
-              const emailTo = 'ayoooonpal@gmail.com';
+              const emailTo = 'contact@puissancedigitale.com';
               const subjectLine = `${this.getAttribute('data-monthyear')} invoice`;
               const fileId = this.getAttribute('data-fileid');
               sendEmailWithAttachment(emailTo, subjectLine, fileId, accessToken);
