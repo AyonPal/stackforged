@@ -31,12 +31,13 @@
 
 <body>
   <div class="container mt-5">
+    <div id="alertContainer mb-3"></div>
     <table id="invoicesTable" class="table table-striped">
       <thead>
         <tr>
           <th>Issue Date</th>
           <th>Due Date</th>
-          <th>File ID</th>
+          <th>Action</th>
           <th>Month/Year</th>
           <th>Invoice No</th>
         </tr>
@@ -64,6 +65,49 @@
 
 
     $(document).ready(function () {
+      function displayAlert(alertType, message) {
+        const alertContainer = $('#alertContainer');
+
+        // Remove any existing alert panels
+        alertContainer.empty();
+
+        // Create the alert panel
+        const alertPanel = $('<div>').addClass('alert alert-dismissible fade show').addClass(`alert-${alertType}`);
+        const closeButton = $('<button>').addClass('close').attr('type', 'button').attr('data-dismiss', 'alert').html('&times;');
+        const alertMessage = $('<span>').text(message);
+
+        // Append elements to the alert panel
+        alertPanel.append(closeButton);
+        alertPanel.append(alertMessage);
+
+        // Append the alert panel to the container
+        alertContainer.append(alertPanel);
+      }
+      function sendEmailWithAttachment(emailTo, subjectLine, fileId, accessToken) {
+        const requestData = {
+          emailTo: emailTo,
+          subjectLine: subjectLine,
+          fileId: fileId
+        };
+
+        $.ajax({
+          url: 'https://us-central1-tokyo-portal-389614.cloudfunctions.net/sendEmailWithAttachment',
+          type: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + accessToken
+          },
+          data: JSON.stringify(requestData),
+          contentType: 'application/json',
+          success: function (response) {
+            console.log('Email sent successfully:', response);
+            displayAlert('success', 'Email sent successfully.');
+          },
+          error: function (error) {
+            console.error('Error sending email:', error);
+            displayAlert('danger', 'An error occurred while sending the email.');
+          }
+        });
+      }
 
       function viewFileAsPDF(fileId, accessToken) {
         // Set the endpoint URL
@@ -139,6 +183,7 @@
             row.append($('<td></td>').text(invoice.dueDate));
             row.append($(`<td>
             <button class="btn btn-primary download-btn" data-fileid="${invoice.fileId}">Download</button>
+            <button class="btn btn-danger email-btn" data-monthyear="${invoice.monthYear}" data-fileid="${invoice.fileId}">Send Email</button>
           </td>`));
             row.append($('<td></td>').text(invoice.monthYear));
             row.append($('<td></td>').text(invoice.invoiceNo));
@@ -150,6 +195,16 @@
             button.addEventListener('click', function () {
               const fileId = this.getAttribute('data-fileid');
               viewFileAsPDF(fileId, accessToken);
+            });
+          });
+          // Attach event listeners to email buttons
+          const emailButtons = document.querySelectorAll('.email-btn');
+          emailButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+              const emailTo = 'ayoooonpal@gmail.com';
+              const subjectLine = `${this.getAttribute('data-monthyear')} invoice`;
+              const fileId = this.getAttribute('data-fileid');
+              sendEmailWithAttachment(emailTo, subjectLine, fileId, accessToken);
             });
           });
         }).catch(error => {
