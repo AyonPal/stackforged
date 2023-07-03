@@ -89,7 +89,7 @@
               let exchangeViewer = document.getElementById('exchangeRate')
               exchangeViewer.textContent = exchangeRate
               console.log('Exchange rate fetched successfully:', exchangeRate);
-              displayAlert("success", 'Exchange rate fetched successfully:', exchangeRate);
+              displayAlert("success", 'Exchange rate fetched successfully: ' +  exchangeRate);
             } catch (error) {
               displayAlert("error", 'An error occurred while processing the response.');
               console.log(error)
