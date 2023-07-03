@@ -51,8 +51,14 @@
   <div id="generateInvoiceContainer">
     <h1 class="text-center">Invoice Generator</h1>
     <div class="mb-3">
-      <label for="costInput" class="form-label">Cost:</label>
-      <input type="number" class="form-control" id="costInput" placeholder="Enter cost">
+      <label for="usd-input" class="form-label">Cost:</label>
+      <input type="number" class="form-control" id="usd-input" placeholder="Enter cost">
+    </div>
+
+    <p class="text-danger">1 USD <i class="bi bi-arrow-left-right"></i> <span id="exchangeRate"></span> EUR</p>
+    <div class="mb-3">
+      <label for="costInput" class="form-label">Cost(€):</label>
+      <input type="number" class="form-control" id="costInput" placeholder="EUR Amount">
     </div>
 
     <div class="mb-3">
@@ -67,6 +73,45 @@
 
 
     $(document).ready(function () {
+      let exchangeRate;
+
+      // Function to fetch the exchange rate
+      function fetchExchangeRate() {
+        $.ajax({
+          url: 'https://api.exchangerate-api.com/v4/latest/USD',
+          type: 'GET',
+          dataType: 'json',
+          success: function (data) {
+            try {
+              // Get the exchange rate
+              exchangeRate = data.rates.EUR;
+              // set in display
+              let exchangeViewer = document.getElementById('exchangeRate')
+              exchangeViewer.textContent = exchangeRate
+              console.log('Exchange rate fetched successfully:', exchangeRate);
+              displayAlert("success", 'Exchange rate fetched successfully:', exchangeRate);
+            } catch (error) {
+              displayAlert("error", 'An error occurred while processing the response.');
+              console.log(error)
+            }
+          },
+          error: function (xhr, status, error) {
+            displayAlert("error", 'An error occurred while making the request.');
+            console.log(error)
+          }
+        });
+      }
+      function convertCurrency() {
+        // Get the entered USD amount
+        const usdAmount = usdInput.val();
+
+        // Calculate the EUR amount
+        const eurAmount = (usdAmount * exchangeRate).toFixed(2);
+
+        // Display the converted amount
+        console.log(`${usdAmount} USD = ${eurAmount} EUR`);
+      }
+      // Call the function to fetch the exchange rate
       function convertDateStringToObject(dateString) {
         const [monthStr, yearStr] = dateString.split(' ');
         const month = new Date(`${monthStr} 1, 2000`).getMonth() + 1;
@@ -206,8 +251,13 @@
       }
 
 
+      fetchExchangeRate();
 
+      // Create a reference to the input field
+      const usdInput = $('#usd-input');
 
+      // Add an event listener to the input field
+      usdInput.on('input', convertCurrency);
       // Retrieve the access token from session storage
       const accessToken = sessionStorage.getItem('access_token');
       if (!accessToken) {
