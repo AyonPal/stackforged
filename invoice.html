@@ -55,7 +55,7 @@
       <input type="number" class="form-control" id="usd-input" placeholder="Enter cost">
     </div>
 
-    <p class="text-danger">1 USD <i class="bi bi-arrow-left-right"></i> <span id="exchangeRate"></span> EUR</p>
+    <p class="text-danger">1 USD &#xF12B; <span id="exchangeRate"></span> EUR</p>
     <div class="mb-3">
       <label for="costInput" class="form-label">Cost(€):</label>
       <input type="number" class="form-control" id="costInput" placeholder="EUR Amount">
@@ -107,6 +107,7 @@
 
         // Calculate the EUR amount
         const eurAmount = (usdAmount * exchangeRate).toFixed(2);
+        $('$costInput').val(eurAmount)
 
         // Display the converted amount
         console.log(`${usdAmount} USD = ${eurAmount} EUR`);
