@@ -125,7 +125,9 @@
       }
       function uploadToFW(fileId, month, year, accessToken) {
         const requestData = {
-          fileId: fileId
+          fileId: fileId,
+          month,
+          year
         };
 
         $.ajax({
