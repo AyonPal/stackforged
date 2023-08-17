@@ -12,11 +12,13 @@
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/hamburgers.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -24,17 +26,20 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.png" alt="..." /></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ms-1"></i>
+
+            <button class="navbar-toggler hamburger hamburger--spin" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    
+
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    
+
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -44,90 +49,102 @@
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            <div class="masthead-heading">Welcome To StackForged!</div>
-            <div class="masthead-subheading text-uppercase">Streamlining your business with cutting-edge technology</div>
+            <div class="masthead-heading lh-3">Welcome To <span id="stack"> Stack </span>Forged!</div>
+            <div class="masthead-subheading text-uppercase">Streamlining your business with cutting-edge technology
+            </div>
             <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
         </div>
     </header>
     <!-- Services-->
     <section class="page-section" id="services">
+
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Services</h2>
                 <h3 class="section-subheading text-muted">What we do..</h3>
             </div>
-            <div class="row text-center">
-                <div class="col-md-4">
+            <div class="row text-center hex-bg">
+                <div class="col-md-4" data-aos="fade-up">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-cloud fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Cloud migration and optimization</h4>
-                    <p class="text-muted">Helping clients migrate to and optimize their use of cloud platforms such as AWS, GCP or go serverless with Cloud Functions and Firestore</p>
+                    <p class="text-muted">Helping clients migrate to and optimize their use of cloud platforms such as
+                        AWS, GCP or go serverless with Cloud Functions and Firestore</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-file fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Document artificial intelligence</h4>
-                    <p class="text-muted">Implementing document artificial intelligence solutions to streamline document processing and management, with leveraging the pwoer of LLMs and OCR technologies </p>
+                    <p class="text-muted">Implementing document artificial intelligence solutions to streamline document
+                        processing and management, with leveraging the pwoer of LLMs and OCR technologies </p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-display fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Software as a service (SaaS) application development</h4>
-                    <p class="text-muted">Building custom SaaS applications using technologies such as Node.js and PHP i.e. Restaurant Management, Medical System, Invoice Parsing etc.</p>
+                    <p class="text-muted">Building custom SaaS applications using technologies such as Node.js and PHP
+                        i.e. Restaurant Management, Medical System, Invoice Parsing etc.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-mobile fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Hybrid Mobile application development</h4>
-                    <p class="text-muted">Developing hybrid mobile apps, fast and elegant looking, using technologies like Flutter</p>
+                    <p class="text-muted">Developing hybrid mobile apps, fast and elegant looking, using technologies
+                        like Flutter</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-pen-nib fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Frontend Designs</h4>
-                    <p class="text-muted">Transform Figma or Adobe XD designs into pixel-perfect HTML/CSS code. Convert designs into responsive web interfaces optimized for various devices and browsers.</p>
+                    <p class="text-muted">Transform Figma or Adobe XD designs into pixel-perfect HTML/CSS code. Convert
+                        designs into responsive web interfaces optimized for various devices and browsers.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-brands fa-google fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Google Workspace APIs</h4>
-                    <p class="text-muted">Google Workspace API, empowering businesses to unlock the full potential of Google's suite of productivity and collaboration tools. We help businesses streamline workflows, enhance productivity, and optimize their usage of Google Workspace</p>
+                    <p class="text-muted">Google Workspace API, empowering businesses to unlock the full potential of
+                        Google's suite of productivity and collaboration tools. We help businesses streamline workflows,
+                        enhance productivity, and optimize their usage of Google Workspace</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Consultation and strategy</h4>
-                    <p class="text-muted">Providing expert guidance and recommendations on technology solutions and strategies to help clients achieve their business goals</p>
+                    <p class="text-muted">Providing expert guidance and recommendations on technology solutions and
+                        strategies to help clients achieve their business goals</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-diagram-project fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Project development and implementation</h4>
-                    <p class="text-muted">Managing end-to-end project development and implementation, including requirements gathering, design, testing, and deployment</p>
+                    <p class="text-muted">Managing end-to-end project development and implementation, including
+                        requirements gathering, design, testing, and deployment</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
                         <i class="fas fa-user-shield fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Support and maintenance</h4>
-                    <p class="text-muted">Providing ongoing support and maintenance to ensure that systems are running smoothly and efficiently</p>
+                    <p class="text-muted">Providing ongoing support and maintenance to ensure that systems are running
+                        smoothly and efficiently</p>
                 </div>
             </div>
         </div>
@@ -139,28 +156,40 @@
                 <h2 class="section-heading text-uppercase">About</h2>
                 <h3 class="section-subheading text-muted">What we value ..</h3>
             </div>
-            <p class="text-muted">Stack Forged is an IT company specializing in document artificial intelligence, cloud solutions, and
-                software as a service (SaaS) application development. We offer a range of services, including
-                consulting, development, and support, to help clients optimize their use of technology and streamline
-                their business processes. Our team has expertise in technologies such as AWS, GCP, Azure, Node.js, PHP,
-                and Flutter, and we have a track record of delivering high-quality solutions to our clients. Whether you
-                are looking to migrate to the cloud, build a custom SaaS application, or develop a mobile app, Stack
-                Forged has the skills and experience to help you succeed.</p>
-            <p class="text-muted">Our team at Stack Forged is dedicated to delivering the best possible service to our clients. We believe
-                in building long-term relationships based on trust and mutual benefit, and we are always looking for
-                ways to add value to our clients' businesses. We are constantly learning and staying up to date with the
-                latest technologies and best practices in the industry, so you can trust that we are bringing the most
-                current and innovative solutions to the table.</p>
-            <p class="text-muted">
+            <div class="bg-light p-5 rounded">
+                <p class="text-muted">Stack Forged is an IT company specializing in document artificial intelligence,
+                    cloud solutions, and
+                    software as a service (SaaS) application development. We offer a range of services, including
+                    consulting, development, and support, to help clients optimize their use of technology and
+                    streamline
+                    their business processes. Our team has expertise in technologies such as AWS, GCP, Azure, Node.js,
+                    PHP,
+                    and Flutter, and we have a track record of delivering high-quality solutions to our clients. Whether
+                    you
+                    are looking to migrate to the cloud, build a custom SaaS application, or develop a mobile app, Stack
+                    Forged has the skills and experience to help you succeed.</p>
+                <p class="text-muted">Our team at Stack Forged is dedicated to delivering the best possible service to
+                    our clients. We believe
+                    in building long-term relationships based on trust and mutual benefit, and we are always looking for
+                    ways to add value to our clients' businesses. We are constantly learning and staying up to date with
+                    the
+                    latest technologies and best practices in the industry, so you can trust that we are bringing the
+                    most
+                    current and innovative solutions to the table.</p>
+                <p class="text-muted">
 
-                In addition to our core services, we also offer ongoing support and maintenance to ensure that your
-                systems are running smoothly and efficiently. Whether you need help with a one-time project or ongoing
-                support, Stack Forged is here to help you succeed. We pride ourselves on our responsive and reliable
-                service, and we are always available to answer your questions and address any issues that may arise.</p>
+                    In addition to our core services, we also offer ongoing support and maintenance to ensure that your
+                    systems are running smoothly and efficiently. Whether you need help with a one-time project or
+                    ongoing
+                    support, Stack Forged is here to help you succeed. We pride ourselves on our responsive and reliable
+                    service, and we are always available to answer your questions and address any issues that may arise.
+                </p>
+            </div>
+
         </div>
     </section>
     <!-- Clients-->
-    <div class="py-5">
+    <!-- <div class="py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-3 col-sm-6 my-3">
@@ -181,7 +210,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Contact-->
     <section class="page-section" id="contact">
         <div class="container">
@@ -196,26 +225,28 @@
             <!-- To make this form functional, sign up at-->
             <!-- https://startbootstrap.com/solution/contact-forms-->
             <!-- to get an API token!-->
-            <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSf0gVuS15rwo0d0LKmRwW4wtRWFjhigY93wk90lN-DQOXgJbQ/formResponse?" target="hidden_iframe">
+            <form id="contactForm"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSf0gVuS15rwo0d0LKmRwW4wtRWFjhigY93wk90lN-DQOXgJbQ/formResponse?"
+                target="hidden_iframe">
                 <div class="row align-items-stretch mb-5">
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- Name input-->
-                            <input class="form-control" name="entry.1475114629" id="name" type="text" placeholder="Your Name *"
-                                data-sb-validations="required" />
+                            <input class="form-control" name="entry.1475114629" id="name" type="text"
+                                placeholder="Your Name *" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         </div>
                         <div class="form-group">
                             <!-- Email address input-->
-                            <input class="form-control" id="email" type="email" placeholder="Your Email *" name="entry.1453167869"
-                                data-sb-validations="required,email" />
+                            <input class="form-control" id="email" type="email" placeholder="Your Email *"
+                                name="entry.1453167869" data-sb-validations="required,email" />
                             <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         </div>
                         <div class="form-group mb-md-0">
                             <!-- Phone number input-->
-                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" name="entry.263789725"
-                                data-sb-validations="required" />
+                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *"
+                                name="entry.263789725" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
                             </div>
                         </div>
@@ -223,8 +254,8 @@
                     <div class="col-md-6">
                         <div class="form-group form-group-textarea mb-md-0">
                             <!-- Message input-->
-                            <textarea class="form-control" id="message" placeholder="Your Message *" name="entry.1646455503"
-                                data-sb-validations="required"></textarea>
+                            <textarea class="form-control" id="message" placeholder="Your Message *"
+                                name="entry.1646455503" data-sb-validations="required"></textarea>
                             <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
                             </div>
                         </div>
@@ -251,14 +282,14 @@
                     <div class="text-center text-danger mb-3">Error sending message!</div>
                 </div>
                 <!-- Submit Button-->
-                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase"
-                        id="submitButton" type="submit">Send Message</button></div>
+                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton"
+                        type="submit">Send Message</button></div>
             </form>
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
         </div>
     </section>
     <!-- Footer-->
-    <footer class="footer py-4">
+    <footer class="footer py-4 bg-white">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 text-lg-start">Copyright &copy; StackForged 2022</div>
@@ -276,14 +307,20 @@
         </div>
     </footer>
     <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <!-- Particales JS -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="js/notations.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

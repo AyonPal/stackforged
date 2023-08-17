@@ -50,6 +50,13 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     });
+    navbarToggler.addEventListener('click', () => {
+      if (navbarToggler.classList.contains("collapsed")){
+        navbarToggler.classList.remove("is-active")
+      }else {
+        navbarToggler.classList.add("is-active")
+      }
+    })
 
 });
 // ParticlesJS Config.
