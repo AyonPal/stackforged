@@ -166,9 +166,7 @@ particlesJS("particles-js", {
   "retina_detect": true
 });
 
-function onSubmit(token) {
-  document.getElementById("contactForm").submit();
-}
+
 $("#contactForm").on("submit", function (e) {
   $("#submitButton").prop("disabled", true)
   $("#submitButton").addClass("disabled")
