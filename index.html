@@ -261,31 +261,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- Submit success message-->
-                <!---->
-                <!-- This is what your users will see when the form-->
-                <!-- has successfully submitted-->
-                <div class="d-none" id="submitSuccessMessage">
-                    <div class="text-center text-white mb-3">
-                        <div class="fw-bolder">Form submission successful!</div>
-                        To activate this form, sign up at
-                    </div>
-                </div>
-                <!-- Submit error message-->
-                <!---->
-                <!-- This is what your users will see when there is-->
-                <!-- an error submitting the form-->
-                <div class="d-none" id="submitErrorMessage">
-                    <div class="text-center text-danger mb-3">Error sending message!</div>
-                </div>
+               
                 <!-- Submit Button-->
-                <!-- reCaptcha -->
-                <div class="d-flex justify-content-center">
-                    <div class="g-recaptcha mb-3" data-sitekey="6LeOKrgnAAAAAM9ngTUAsm7Qo0HNKskX3f7j84Iq"></div>
 
-                </div>
-
-                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton"
+                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase g-recaptcha" id="submitButton" 
+                    data-sitekey="6LeOKrgnAAAAAM9ngTUAsm7Qo0HNKskX3f7j84Iq" 
+                    data-callback='onSubmit' 
+                    data-action='submit'
                         type="submit">Send Message</button></div>
             </form>
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
