@@ -168,6 +168,7 @@ particlesJS("particles-js", {
 
 
 $("#contactForm").on("submit", function (e) {
+  console.log("submitting")
   $("#submitButton").prop("disabled", true)
   $("#submitButton").addClass("disabled")
   Toastify({
