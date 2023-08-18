@@ -58,7 +58,7 @@ window.addEventListener('DOMContentLoaded', event => {
     }
   })
   function onSubmit(token) {
-    document.getElementById("demo-form").submit();
+    document.getElementById("contactForm").submit();
   }
   $("#contactForm").on("submit", function (e) {
     $("#submitButton").prop("disabled", true)
@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', event => {
         $("#contactForm").trigger("reset")
         $("#submitButton").prop("disabled", false)
         $("#submitButton").removeClass("disabled")
-
+  
       }
     }).showToast();
   })
