@@ -1,0 +1,13 @@
+# Applying rules for all web robots
+User-agent: *
+
+# Allow all robots access to the entire site
+Allow: /
+
+# Disallow specific pages
+Disallow: /login.html
+Disallow: /handler.html
+Disallow: /invoice.html
+
+# Sitemap location
+Sitemap: https://stackforged.com/sitemap.xml

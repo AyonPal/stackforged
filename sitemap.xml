@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://www.stackforged.com</loc>
+		<priority>1.00</priority>
+		<lastmod>2023-10-09</lastmod>
+	</url>
+	<url>
+		<loc>https://www.stackforged.com/login.html</loc>
+		<priority>0.50</priority>
+		<lastmod>2023-06-19</lastmod>
+	</url>
+	<url>
+		<loc>https://www.stackforged.com/invoice.html</loc>
+		<priority>0.50</priority>
+		<lastmod>2023-07-03</lastmod>
+	</url>
+	<url>
+		<loc>https://www.stackforged.com/handler.html</loc>
+		<priority>0.50</priority>
+		<lastmod>2023-06-19</lastmod>
+	</url>
+</urlset>
