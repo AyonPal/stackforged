@@ -141,35 +141,35 @@
           }).showToast();
         }
       }
-      function sendEmailWithAttachment(emailTo, subjectLine, fileId, accessToken) {
-        const requestData = {
-          emailTo: emailTo,
-          subjectLine: subjectLine,
-          fileId: fileId
-        };
+      // function sendEmailWithAttachment(emailTo, subjectLine, fileId, accessToken) {
+      //   const requestData = {
+      //     emailTo: emailTo,
+      //     subjectLine: subjectLine,
+      //     fileId: fileId
+      //   };
 
-        $.ajax({
-          url: 'https://us-central1-tokyo-portal-389614.cloudfunctions.net/sendEmailWithAttachment',
-          type: 'POST',
-          headers: {
-            'Authorization': 'Bearer ' + accessToken
-          },
-          data: JSON.stringify(requestData),
-          contentType: 'application/json',
-          success: function (response) {
-            console.log('Email sent successfully:', response);
-            displayAlert('success', 'Email sent successfully.');
-          },
-          error: function (error) {
-            console.error('Error sending email:', error);
-            displayAlert('danger', 'An error occurred while sending the email.');
-            setTimeout(() => {
-              sessionStorage.removeItem('access_token');
-              window.location.href = 'login.html';
-            }, 5000)
-          }
-        });
-      }
+      //   $.ajax({
+      //     url: 'https://us-central1-tokyo-portal-389614.cloudfunctions.net/sendEmailWithAttachment',
+      //     type: 'POST',
+      //     headers: {
+      //       'Authorization': 'Bearer ' + accessToken
+      //     },
+      //     data: JSON.stringify(requestData),
+      //     contentType: 'application/json',
+      //     success: function (response) {
+      //       console.log('Email sent successfully:', response);
+      //       displayAlert('success', 'Email sent successfully.');
+      //     },
+      //     error: function (error) {
+      //       console.error('Error sending email:', error);
+      //       displayAlert('danger', 'An error occurred while sending the email.');
+      //       setTimeout(() => {
+      //         sessionStorage.removeItem('access_token');
+      //         window.location.href = 'login.html';
+      //       }, 5000)
+      //     }
+      //   });
+      // }
       function uploadToFW(fileId, month, year, accessToken) {
         const requestData = {
           fileId: fileId,
@@ -178,7 +178,7 @@
         };
 
         $.ajax({
-          url: 'https://us-central1-tokyo-portal-389614.cloudfunctions.net/uploadToFW',
+          url: 'https://7yesv2yz9d.execute-api.ap-south-1.amazonaws.com/default/uploadToFW',
           type: 'POST',
           headers: {
             'Authorization': 'Bearer ' + accessToken
@@ -266,7 +266,7 @@
         window.location.href = 'login.html'
       } else {
         // Fetch data and populate the table
-        fetch('https://us-central1-tokyo-portal-389614.cloudfunctions.net/listPDF', {
+        fetch('https://7yesv2yz9d.execute-api.ap-south-1.amazonaws.com/default/listPDF', {
           method: 'GET',
           headers: {
             'Authorization': 'Bearer ' + accessToken,
@@ -299,12 +299,13 @@
           // Attach event listeners to email buttons
           const emailButtons = document.querySelectorAll('.email-btn');
           emailButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-              const emailTo = 'contact@puissancedigitale.com';
-              const subjectLine = `${this.getAttribute('data-monthyear')} invoice`;
-              const fileId = this.getAttribute('data-fileid');
-              sendEmailWithAttachment(emailTo, subjectLine, fileId, accessToken);
-            });
+            // button.addEventListener('click', function () {
+            //   const emailTo = 'contact@puissancedigitale.com';
+            //   const subjectLine = `${this.getAttribute('data-monthyear')} invoice`;
+            //   const fileId = this.getAttribute('data-fileid');
+            //   sendEmailWithAttachment(emailTo, subjectLine, fileId, accessToken);
+            // });
+            button.setAttribute('disabled', 'true')
           });
           // Attach event listeners to email buttons
           const uploadBUtton = document.querySelectorAll('.upload-btn');
@@ -334,7 +335,7 @@
           issueDate = issueDate ? issueDate : new Date()
 
           // Call the cloud function
-          fetch('https://us-central1-tokyo-portal-389614.cloudfunctions.net/generatePDF', {
+          fetch('https://7yesv2yz9d.execute-api.ap-south-1.amazonaws.com/default/generatePDF', {
             method: 'POST',
             headers: {
               'Authorization': 'Bearer ' + accessToken,
