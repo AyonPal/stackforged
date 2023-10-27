@@ -178,8 +178,8 @@
         };
 
         $.ajax({
-          url: 'https://7yesv2yz9d.execute-api.ap-south-1.amazonaws.com/default/uploadToFW',
-          type: 'POST',
+          url: 'https://baol4vpxoa.execute-api.ap-south-1.amazonaws.com/default/invoice',
+          type: 'PUT',
           headers: {
             'Authorization': 'Bearer ' + accessToken
           },
@@ -266,7 +266,7 @@
         window.location.href = 'login.html'
       } else {
         // Fetch data and populate the table
-        fetch('https://7yesv2yz9d.execute-api.ap-south-1.amazonaws.com/default/listPDF', {
+        fetch('https://baol4vpxoa.execute-api.ap-south-1.amazonaws.com/default/invoice', {
           method: 'GET',
           headers: {
             'Authorization': 'Bearer ' + accessToken,
@@ -335,7 +335,7 @@
           issueDate = issueDate ? issueDate : new Date()
 
           // Call the cloud function
-          fetch('https://7yesv2yz9d.execute-api.ap-south-1.amazonaws.com/default/generatePDF', {
+          fetch('https://baol4vpxoa.execute-api.ap-south-1.amazonaws.com/default/invoice', {
             method: 'POST',
             headers: {
               'Authorization': 'Bearer ' + accessToken,
