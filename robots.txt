@@ -5,9 +5,6 @@ User-agent: *
 Allow: /
 
 # Disallow specific pages
-Disallow: /login.html
-Disallow: /handler.html
-Disallow: /invoice.html
 
 # Sitemap location
 Sitemap: https://stackforged.com/sitemap.xml
